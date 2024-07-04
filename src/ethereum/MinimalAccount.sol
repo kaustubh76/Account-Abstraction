@@ -6,7 +6,7 @@ import {IAccount} from "lib/account-abstraction/contracts/interfaces/IAccount.so
 import {PackedUserOperation} from "lib/account-abstraction/contracts/interfaces/PackedUserOperation.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {MessageHashUtils} from "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
-import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol;
+import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {SIG_VALIDATION_FAILED, SIG_VALIDATION_SUCCESS} from "lib/account-abstraction/contracts/core/Helpers.sol";
 import {IEntryPoint} from "lib/account-abstraction/contracts/interfaces/IEntryPoint.sol";
 
@@ -31,9 +31,7 @@ contract MinimalAccount is IAccount , Ownable {
         i_entryPoint = IEntryPoint(entryPoint);
     }
 
-    recieve() external payable {
-        
-    }
+    recieve() external payable {}
 
     //            EXTERNAL FUNCTIONS
     function execute(address dest, uint value, bytes calldata functionData) external requireFromEntryPoint {
